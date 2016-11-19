@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE HTML public "//w3C//DTD XHTML1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript">
+
+function formValidator() {
+var usn=document.getElementById('req1');
+alert(usn.value);
+if(isCorrect(usn))
+{
+ return true;
+}
+ return false;
+}
+
+function isCorrect(Elem1)
+{
+ var alphaExp1=/[1-4][a-z][a-z][0-9][0-9][a-z][a-z][0-9][0-9][0-9]$/
+ if(Elem1.value.length==0)
+ {
+  alert("US Number is empty");
+  Elem1.focus();
+  return false;
+ }
+ else if(!Elem1.value.match(alphaExp1))
+ {
+  alert("US No should be in DADDAADDD format");
+  Elem1.focus();
+  return false;
+ }
+ alert("US Number IS CORRECT");
+ return true;
+}
+
+</script>
+<body>
+<form onsubmit="return formValidator()"> Enter your USN. in DAADDAADDD format: <input type="text" id="req1"/>
+<input type="submit" value="Check Field"/>
+</form></body></html>
