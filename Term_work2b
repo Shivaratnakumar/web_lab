@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE HTML public "//w3C//DTD XHTML1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+
+function formValidator() 
+{
+	var usn=document.getElementById('req1');
+	var sem=document.getElementById('req2');
+	alert(usn.value);
+	alert(sem.value);
+	
+	if(isCorrect(usn))
+ 	{
+  		if(isPerfect(sem))
+   		return true;
+ 	}
+	return false;
+}
+
+function isPerfect(elem2)
+{
+	var alphaExp2=/[1-8]$/
+	if(elem2.value.length==0)
+	{
+		alert("Semester Number is empty");
+		elem2.focus();
+		return false;
+	}
+	else if(!elem2.value.match(alphaExp2))
+	{
+		alert("Invalid Semester Number");
+		elem2.focus();
+		return false;
+	}
+	alert("Semester Number is CORRECT");
+	return true;
+} 
+
+function isCorrect(Elem1)
+{
+ var alphaExp1=/[1-4][a-z][a-z][0-9][0-9][a-z][a-z][0-9][0-9][0-9]$/
+ if(Elem1.value.length==0)
+ {
+  alert("US Number is empty");
+  Elem1.focus();
+  return false;
+ }
+ else if(!Elem1.value.match(alphaExp1))
+ {
+  alert("US No should be in DADDAADDD format");
+  Elem1.focus();
+  return false;
+ }
+ alert("US Number IS CORRECT");
+ return true;
+}
+
+</script>
+</head>
+<body>
+<form onsubmit='return formValidator()'> Enter your USN. in DAADDAADDD format: <input type="text" id="req1"/><BR/>Enter your Sem. in D[1-8] format: <input type='text' id='req2'/> <BR/>
+<input type='submit' value='Check Field'/>
+</form></body></html>
